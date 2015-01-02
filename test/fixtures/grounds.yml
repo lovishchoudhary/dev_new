@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ground_id: 1
+  ground_name: MyString
+  ground_description: MyText
+  sc_id: 1
+
+two:
+  ground_id: 1
+  ground_name: MyString
+  ground_description: MyText
+  sc_id: 1

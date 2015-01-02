@@ -1,0 +1,52 @@
+<%= form_for @booking, :html => { :class => "form-horizontal booking" } do |f| %>
+
+    <% if @booking.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @booking.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :booking_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :booking_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@booking[:booking_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :slot_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slot_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@booking[:slot_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :customer_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :customer_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@booking[:customer_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :booking_confirmation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :booking_confirmation, :class => 'form-control' %>
+    </div>
+    <%= error_span(@booking[:booking_confirmation]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            bookings_path, :class => 'btn btn-default' %>
+
+<% end %>

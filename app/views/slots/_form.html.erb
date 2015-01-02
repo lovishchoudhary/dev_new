@@ -1,0 +1,73 @@
+<%= form_for @slot, :html => { :class => "form-horizontal slot" } do |f| %>
+
+    <% if @slot.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@slot.errors.count, "error") %> prohibited this slot from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @slot.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :slot_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slot_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@slot[:slot_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :slot_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slot_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@slot[:slot_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :slot_start_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slot_start_time, :class => 'form-control' %>
+    </div>
+    <%= error_span(@slot[:slot_start_time]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :slot_end_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slot_end_time, :class => 'form-control' %>
+    </div>
+    <%= error_span(@slot[:slot_end_time]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :slot_availability, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slot_availability, :class => 'form-control' %>
+    </div>
+    <%= error_span(@slot[:slot_availability]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ground_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ground_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@slot[:ground_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :sport_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sport_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@slot[:sport_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            slots_path, :class => 'btn btn-default' %>
+
+<% end %>

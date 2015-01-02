@@ -1,0 +1,31 @@
+<%- model_class = Slot -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:slot_id) %>:</strong></dt>
+  <dd><%= @slot.slot_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slot_date) %>:</strong></dt>
+  <dd><%= @slot.slot_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slot_start_time) %>:</strong></dt>
+  <dd><%= @slot.slot_start_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slot_end_time) %>:</strong></dt>
+  <dd><%= @slot.slot_end_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slot_availability) %>:</strong></dt>
+  <dd><%= @slot.slot_availability %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ground_id) %>:</strong></dt>
+  <dd><%= @slot.ground_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sport_id) %>:</strong></dt>
+  <dd><%= @slot.sport_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              slots_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_slot_path(@slot), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              slot_path(@slot),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

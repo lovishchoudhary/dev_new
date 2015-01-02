@@ -1,0 +1,48 @@
+<%- model_class = Slot -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:slot_id) %></th>
+      <th><%= model_class.human_attribute_name(:slot_date) %></th>
+      <th><%= model_class.human_attribute_name(:slot_start_time) %></th>
+      <th><%= model_class.human_attribute_name(:slot_end_time) %></th>
+      <th><%= model_class.human_attribute_name(:slot_availability) %></th>
+      <th><%= model_class.human_attribute_name(:ground_id) %></th>
+      <th><%= model_class.human_attribute_name(:sport_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @slots.each do |slot| %>
+      <tr>
+        <td><%= link_to slot.id, slot_path(slot) %></td>
+        <td><%= slot.slot_id %></td>
+        <td><%= slot.slot_date %></td>
+        <td><%= slot.slot_start_time %></td>
+        <td><%= slot.slot_end_time %></td>
+        <td><%= slot.slot_availability %></td>
+        <td><%= slot.ground_id %></td>
+        <td><%= slot.sport_id %></td>
+        <td><%=l slot.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_slot_path(slot), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      slot_path(slot),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_slot_path,
+            :class => 'btn btn-primary' %>

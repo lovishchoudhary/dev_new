@@ -1,0 +1,52 @@
+<%= form_for @ground, :html => { :class => "form-horizontal ground" } do |f| %>
+
+    <% if @ground.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@ground.errors.count, "error") %> prohibited this ground from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @ground.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :ground_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ground_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@ground[:ground_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ground_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ground_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@ground[:ground_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ground_description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ground_description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@ground[:ground_description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :sc_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sc_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@ground[:sc_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            grounds_path, :class => 'btn btn-default' %>
+
+<% end %>

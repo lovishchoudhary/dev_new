@@ -1,0 +1,25 @@
+<%- model_class = Ground -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:ground_id) %>:</strong></dt>
+  <dd><%= @ground.ground_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ground_name) %>:</strong></dt>
+  <dd><%= @ground.ground_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ground_description) %>:</strong></dt>
+  <dd><%= @ground.ground_description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sc_id) %>:</strong></dt>
+  <dd><%= @ground.sc_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              grounds_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_ground_path(@ground), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              ground_path(@ground),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

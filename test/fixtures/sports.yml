@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sports_id: 1
+  sports_name: MyString
+
+two:
+  sports_id: 1
+  sports_name: MyString
